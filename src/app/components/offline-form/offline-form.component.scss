@@ -1,0 +1,159 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 21px;
+}
+
+input[type="text"],
+input[type="file"],
+button {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+
+  &:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.recording-feedback {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 14px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-submit {
+  background-color: #28a745;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: #218838;
+  }
+
+  &:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+.file-input {
+  display: none;
+}
+.custom-file-input {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+.title {
+  display: flex;
+  justify-content: center;
+  background-color: #007bff;
+  padding: 20px;
+  margin-bottom: 40px;
+  span {
+    color: white;
+    font-size: 25px;
+    font-weight: bolder;
+  }
+}
+.pd {
+  padding-top: 10px;
+}
+#textInput {
+  height: 35px;
+}

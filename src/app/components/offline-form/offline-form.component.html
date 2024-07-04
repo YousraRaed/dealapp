@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="title"><span>Deal App</span></div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="textInput">Text Input</label>
+      <div class="pd">
+        <input id="textInput" formControlName="textInput" />
+      </div>
+      <div
+        *ngIf="textInput?.invalid && (textInput?.dirty || textInput?.touched)"
+        class="error"
+      >
+        <div *ngIf="textInput?.errors?.['required']">
+          Text input is required.
+        </div>
+        <div *ngIf="textInput?.errors?.['maxlength']">
+          Text input cannot be longer than 10 characters.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="imageInput">Image Input</label>
+      <input
+        class="file-input"
+        id="imageInput"
+        type="file"
+        (change)="onImageChange($event)"
+      />
+      <div class="pd">
+        <label for="imageInput" class="custom-file-input">
+          Choose a file
+        </label>
+      </div>
+      <div *ngIf="file">
+        <section class="file-info">
+          File details:
+          <ul>
+            <li>Name: {{ file.name }}</li>
+            <li>Type: {{ file.type }}</li>
+            <li>Size: {{ file.size }} bytes</li>
+          </ul>
+        </section>
+      </div>
+      <div
+        *ngIf="
+          imageInput?.invalid && (imageInput?.dirty || imageInput?.touched)
+        "
+        class="error"
+      >
+        <div *ngIf="imageInput?.errors?.['required']">
+          Image input is required.
+        </div>
+        <div *ngIf="imageInput?.errors?.['invalidType']">
+          Invalid image type. Allowed types are JPEG, PNG, GIF.
+        </div>
+        <div *ngIf="imageInput?.errors?.['invalidSize']">
+          Invalid image size. Maximum size allowed is 5MB.
+        </div>
+        <div *ngIf="imageInput?.errors?.['invalidDimensions']">
+          Invalid image dimensions. Maximum dimensions are 1920x1080 pixels.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="voiceInput">Voice Input</label>
+      <div class="button-group pd">
+        <button
+          type="button"
+          class="btn"
+          (click)="startRecording()"
+          [disabled]="recording"
+        >
+          Start Recording
+        </button>
+        <button
+          type="button"
+          class="btn"
+          (click)="stopRecording()"
+          [disabled]="!recording"
+        >
+          Stop Recording
+        </button>
+      </div>
+      <div *ngIf="recording" class="recording-feedback">Recording...</div>
+      <audio *ngIf="audioUrl" [src]="audioUrl" controls></audio>
+    </div>
+
+    <button type="submit" class="btn-submit" [disabled]="!form.valid">
+      Submit
+    </button>
+  </form>
+</div>

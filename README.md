@@ -1,27 +1,118 @@
-# Dealapp13
+# Deal App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11.
+## Overview
 
-## Development server
+Deal App is an offline-capable form application that allows users to input image, text, and voice data. The application is built using Angular and leverages NGRX for state management and local storage to enable offline functionality. When the user goes back online, the application automatically synchronizes the locally saved data with the server.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+### User Interface:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+User-friendly form interface with fields for image upload, text input, and voice recording.
 
-## Build
+### Image Input:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Allows users to upload images from their device's gallery or capture images using the device's camera, with validation for file type, size, and dimensions.
 
-## Running unit tests
+### Text Input:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Provides a text input field with validation for character limits and required fields.
 
-## Running end-to-end tests
+### Voice Input:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Enables users to record voice inputs using the device's microphone with audio recording controls (start, stop, playback) and visual feedback during recording.
 
-## Further help
+### Offline Support:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Enables users to fill out the form and save their inputs locally even without an internet connection. Automatically synchronizes the locally saved form submissions with the server once the internet connection is restored.
+
+### Lazy Loading:
+
+Implements lazy loading to optimize the form's performance.
+
+### Server-Side Rendering (SSR):
+
+Ensures the page can be crawled using SSR for better SEO and initial load performance.
+
+## Technologies Used
+
+### Angular:
+
+Framework for building the application.
+
+### NGRX:
+
+State management library for handling application state.
+
+### @ngx-pwa/local-storage:
+
+Library for managing local storage.
+
+### DomSanitizer:
+
+Service for sanitizing URLs.
+
+### Service Workers:
+
+For enabling offline capabilities.
+
+### SSR:
+
+For server-side rendering using Angular Universal.
+
+### HTML/CSS/SCSS:
+
+For creating and styling the user interface.
+
+## Installation
+
+Clone the Repository:
+
+```
+git clone <repository_url>
+cd dealapp13
+```
+
+Install Dependencies::
+
+```
+npm install
+```
+
+Build the Application:
+
+```
+npm run build:ssr
+```
+
+Serve the Application:
+
+```
+npm run serve:ssr
+```
+
+Start Development Server:
+
+```
+ng serve
+```
+
+## Run PWA
+
+1-Build
+
+```
+ng build --prod
+```
+
+2-Change path
+
+```
+<urPath>/dealapp13/dist/dealapp13/browser
+```
+
+3-Run
+
+```
+http-server -o
+```
